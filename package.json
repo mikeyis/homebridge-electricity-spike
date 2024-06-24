@@ -7,7 +7,8 @@
     "homebridge-plugin",
     "electricity",
     "spike",
-    "automation"
+    "automation",
+    "amber"
   ],
   "engines": {
     "node": ">=14.17.0",
