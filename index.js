@@ -1,4 +1,3 @@
-
 const axios = require('axios');
 const { Accessory, Service, Characteristic, uuid } = require('hap-nodejs');
 
@@ -13,14 +12,21 @@ class ElectricitySpikeAccessory {
   constructor(log, config) {
     this.log = log;
     this.name = config.name;
-    this.apiUrl = config.apiUrl;
     this.apiToken = config.apiToken;
-    this.pollingInterval = config.pollingInterval || 60000; // default to 1 minute
+    this.siteID = config.siteID;
+    this.pollingInterval = parseInt(config.pollingInterval, 10) || 60000; // default to 1 minute
+
+    if (!this.apiToken || !this.siteID) {
+      this.log.error('API token and site ID must be specified in the configuration.');
+      return;
+    }
+
+    this.apiUrl = `https://api.amber.com.au/v1/sites/${this.siteID}/prices/current?resolution=30`;
 
     this.spikeDetected = false;
 
     this.informationService = new Service.AccessoryInformation()
-      .setCharacteristic(Characteristic.Manufacturer, 'Your Company')
+      .setCharacteristic(Characteristic.Manufacturer, 'Price Spike Detector')
       .setCharacteristic(Characteristic.Model, 'Electricity Spike Detector')
       .setCharacteristic(Characteristic.SerialNumber, '123-456-789');
 
