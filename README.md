@@ -27,7 +27,7 @@ This Homebridge plugin detects electricity price spikes and triggers HomeKit aut
 
 Add the following configuration to your `config.json` file:
 
-\`\`\`json
+```json
 {
   "accessories": [
     {
@@ -39,7 +39,7 @@ Add the following configuration to your `config.json` file:
     }
   ]
 }
-\`\`\`
+```
 
 ## Example Usage
 
