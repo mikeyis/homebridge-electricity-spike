@@ -1,0 +1,47 @@
+
+{
+  "pluginAlias": "ElectricitySpikePlatform",
+  "pluginType": "accessory",
+  "singular": true,
+  "headerDisplay": "Electricity Spike Detector",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true
+      },
+      "apiToken": {
+        "title": "API Token",
+        "type": "string",
+        "required": true
+      },
+      "siteID": {
+        "title": "Site ID",
+        "type": "string",
+        "required": true
+      },
+      "pollingInterval": {
+        "title": "Polling Interval",
+        "type": "string",
+        "required": true,
+        "oneOf": [
+          { "title": "5 Minutes", "enum": ["300000"] },
+          { "title": "10 Minutes", "enum": ["600000"] },
+          { "title": "30 Minutes", "enum": ["1800000"] }
+        ]
+      }
+    },
+    "required": ["name", "apiToken", "siteID", "pollingInterval"]
+  },
+  "form": [
+    "name",
+    "apiToken",
+    "siteID",
+    {
+      "key": "pollingInterval",
+      "type": "select"
+    }
+  ]
+}
