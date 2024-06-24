@@ -1,5 +1,6 @@
+
 const axios = require('axios');
-const { Accessory, Service, Characteristic, uuid } = require('hap-nodejs');
+const { Accessory, Service, Characteristic, UUIDGen } = require('homebridge');
 
 const pluginName = 'homebridge-electricity-spike';
 const platformName = 'ElectricitySpikePlatform';
@@ -26,7 +27,7 @@ class ElectricitySpikeAccessory {
     this.spikeDetected = false;
 
     this.informationService = new Service.AccessoryInformation()
-      .setCharacteristic(Characteristic.Manufacturer, 'Price Spike Detector')
+      .setCharacteristic(Characteristic.Manufacturer, 'Your Company')
       .setCharacteristic(Characteristic.Model, 'Electricity Spike Detector')
       .setCharacteristic(Characteristic.SerialNumber, '123-456-789');
 
