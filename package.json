@@ -1,14 +1,13 @@
 {
   "name": "homebridge-electricity-spike",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "A Homebridge plugin to detect electricity price spikes and trigger HomeKit automations.",
   "license": "GPL-3.0-or-later",
   "keywords": [
     "homebridge-plugin",
     "electricity",
     "spike",
-    "automation",
-    "amber"
+    "automation"
   ],
   "engines": {
     "node": ">=14.17.0",
@@ -23,6 +22,14 @@
   },
   "dependencies": {
     "axios": "^0.21.1"
+  },
+  "peerDependencies": {
+    "homebridge": ">=1.3.0",
+    "hap-nodejs": "^0.9.4"
+  },
+  "devDependencies": {
+    "homebridge": ">=1.3.0",
+    "hap-nodejs": "^0.9.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
